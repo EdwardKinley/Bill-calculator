@@ -8,17 +8,22 @@ document.addEventListener('DOMContentLoaded', () => {
   amountPerPayerP = document.querySelector('#amountPerPayer');
 
   totalInput = document.querySelector('#totalInput');
+  tipInput = document.querySelector('#tipInput');
 
-  total = 100;
+  total = 0;
   tip = 0;
   customers = 3;
   calculation = 0;
 
-  calculateBillPerPayer();
+  // calculateBillPerPayer();
 
   totalInput.addEventListener('input', ()=> {
     total = totalInput.value;
-    console.log(total);
+    calculateBillPerPayer();
+  })
+
+  tipInput.addEventListener('input', ()=> {
+    tip = tipInput.value;
     calculateBillPerPayer();
   })
 
