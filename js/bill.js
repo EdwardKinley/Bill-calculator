@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   totalInput = document.querySelector('#totalInput');
   tipInput = document.querySelector('#tipInput');
+  customersInput = document.querySelector('#customersInput');
 
   total = 0;
   tip = 0;
@@ -18,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // calculateBillPerPayer();
 
   const tipPercentages = [0, 10, 12.5, 15];
+  const numbersOfPayers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   for (i=0; i<tipPercentages.length; i++) {
     const tipButton = document.createElement('button');
@@ -32,13 +34,32 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
+  for (i=0; i<numbersOfPayers.length; i++) {
+    const payersButton = document.createElement('button');
+    payersButton.id = `#payers${numbersOfPayers[i]}`;
+    payersButton.value = numbersOfPayers[i];
+    payersButton.textContent = numbersOfPayers[i];
+    customersDiv.appendChild(payersButton);
+    payersButton.addEventListener('click', () => {
+      customers = payersButton.value;
+      customersInput.value = payersButton.value;
+      calculateBillPerPayer();
+    })
+  }
+
   totalInput.addEventListener('input', ()=> {
     total = totalInput.value;
     calculateBillPerPayer();
   })
 
-  tipInput.addEventListener('input', ()=> {
+  tipInput.addEventListener('input', () => {
     tip = tipInput.value;
+    calculateBillPerPayer();
+  })
+
+  customersInput.addEventListener('input', () => {
+    customers = customersInput.value;
+    console.log(customers);
     calculateBillPerPayer();
   })
 
