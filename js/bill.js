@@ -17,6 +17,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // calculateBillPerPayer();
 
+  const tipPercentages = [0, 10, 12.5, 15];
+
+  for (i=0; i<tipPercentages.length; i++) {
+    const tipButton = document.createElement('button');
+    tipButton.id = `#tip${tipPercentages[i]}`;
+    tipButton.value = tipPercentages[i];
+    tipButton.textContent = tipPercentages[i];
+    tipDiv.appendChild(tipButton);
+    tipButton.addEventListener('click', () => {
+      tip = tipButton.value;
+      tipInput.value = tipButton.value;
+      calculateBillPerPayer();
+    })
+  }
+
   totalInput.addEventListener('input', ()=> {
     total = totalInput.value;
     calculateBillPerPayer();
