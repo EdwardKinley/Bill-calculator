@@ -18,6 +18,16 @@ body {
 .bill {
   background-color: white;
   color: black;
-  padding: 3vh 3vw;
-  border-radius: 5%;
+  padding: 2vh 2vw;
+  border-radius: 1vh;
+}
+
+div {
+  margin: 1vh 1vw;
+}
+
+.title {
+  text-align: center;
+  margin: 2vh 2vw;
+  font-size: 1.5rem;
 }
