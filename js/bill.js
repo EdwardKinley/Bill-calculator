@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   total = 0;
   tip = 0;
-  customers = 3;
+  customers = 1;
   calculation = 0;
 
   // calculateBillPerPayer();
@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   for (i=0; i<tipPercentages.length; i++) {
     const tipButton = document.createElement('button');
+    tipButton.className = 'tipButton';
     tipButton.id = `#tip${tipPercentages[i]}`;
     tipButton.value = tipPercentages[i];
     tipButton.textContent = tipPercentages[i];
