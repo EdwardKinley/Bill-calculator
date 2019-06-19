@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // bill = document.querySelector('.bill');
   totalDiv = document.querySelector('.total');
   tipDiv = document.querySelector('.tip');
   customersDiv = document.querySelector('.customers');
@@ -15,8 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
   tip = 0;
   customers = 1;
   calculation = 0;
-
-  // calculateBillPerPayer();
 
   const tipPercentages = [0, 10, 12.5, 15];
   const numbersOfPayers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -59,15 +56,21 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   customersInput.addEventListener('input', () => {
-    customers = customersInput.value;
-    console.log(customers);
+    if (customersInput.value == '') {
+      customers = 1;
+    } else {
+      customers = customersInput.value;
+    }
     calculateBillPerPayer();
   })
 
   function calculateBillPerPayer() {
     calculation = ((total * (1 + tip/100)) / customers).toFixed(2);
-    amountPerPayerP.textContent = calculation;
+    if (isNaN(calculation)) {
+      amountPerPayerP.textContent = 'Washing up!';
+    } else {
+      amountPerPayerP.textContent = calculation;
+    }
   }
-
 
 })

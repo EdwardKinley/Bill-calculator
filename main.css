@@ -25,7 +25,6 @@ body {
 
 div {
   margin: 3vh 2vw;
-  /* border: 1px solid black; */
 }
 
 .title {
@@ -56,4 +55,8 @@ button {
 
 .tipButton {
   width: 6.5vh;
+}
+
+#amountPerPayer {
+  font-size: 4vh;
 }
