@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
   customers = 1;
   calculation = 0;
 
+  totalInput.focus();
+
   const tipPercentages = [0, 10, 12.5, 15];
   const numbersOfPayers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
